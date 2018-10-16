@@ -21,12 +21,7 @@ class Item extends React.Component {
           dangerouslySetInnerHTML={{ __html: parsedName }}
         />
         <CopyToClipboard text={item.art} onCopy={onCopy}>
-          <li
-            className={styles.itemArt}
-            // onClick={() => this.copyToClipboard(item.art)}
-          >
-            {item.art}
-          </li>
+          <li className={styles.itemArt}>{item.art}</li>
         </CopyToClipboard>
       </ul>
     )

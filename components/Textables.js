@@ -72,7 +72,6 @@ class Textables extends React.Component {
 
   render() {
     if (this.state.faces.length < 1) return <div>Loading...</div>
-    // console.log(this.state.faces)
 
     const faces = this.state.searchedFaces.map((item, i) => (
       <Item key={i} item={item} onCopy={this.onCopy} />
@@ -83,6 +82,13 @@ class Textables extends React.Component {
         {this.state.copied ? (
           <span className={styles.copied}>Copied!</span>
         ) : null}
+        <div
+          style={{
+            fontSize: '2em'
+          }}
+        >
+          ♥‿♥ Click on a Face to copy it ( ¬‿¬)
+        </div>
         <input
           type="search"
           placeholder="Find a ಠ‿ಠ by name.."
