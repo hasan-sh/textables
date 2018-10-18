@@ -29,7 +29,7 @@ class Textables extends React.Component {
       acc.push(...items)
       return acc
     }, [])
-    this.setState({ faces, searchedFaces: faces.slice() })
+    this.setState({ faces, searchedFaces: faces })
   }
 
   componentWillUpdate = (nextProps, nextState) => {
@@ -49,7 +49,7 @@ class Textables extends React.Component {
   }
 
   search = search => {
-    const faces = this.state.faces.slice()
+    const faces = JSON.parse(JSON.stringify(this.state.faces))
 
     const searchedFaces = faces.filter(face => {
       const name = face.name.toLowerCase()
@@ -62,7 +62,7 @@ class Textables extends React.Component {
           searchTerm,
           `<span class="${styles.test}">${search.trim()}</span>`
         )
-        face.parsedName = parsedName
+        face.name = parsedName
         return true
       }
     })
