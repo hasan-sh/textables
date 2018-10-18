@@ -82,22 +82,21 @@ function (_React$Component) {
         },
         __self: this
       }, "No Item!");
-      var parsedName = item.parsedName || item.name;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: _style_scss__WEBPACK_IMPORTED_MODULE_1___default.a.item,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 16
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: _style_scss__WEBPACK_IMPORTED_MODULE_1___default.a.itemName,
         dangerouslySetInnerHTML: {
-          __html: parsedName
+          __html: item.name
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 17
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__["CopyToClipboard"], {
@@ -105,14 +104,14 @@ function (_React$Component) {
         onCopy: onCopy,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 21
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: _style_scss__WEBPACK_IMPORTED_MODULE_1___default.a.itemArt,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 22
         },
         __self: this
       }, item.art)));
@@ -249,7 +248,7 @@ function (_React$Component) {
 
               _this.setState({
                 faces: faces,
-                searchedFaces: faces.slice()
+                searchedFaces: faces
               });
 
             case 9:
@@ -277,8 +276,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "search", function (search) {
-      var faces = _this.state.faces.slice();
-
+      var faces = JSON.parse(JSON.stringify(_this.state.faces));
       var searchedFaces = faces.filter(function (face) {
         var name = face.name.toLowerCase();
         var searchTerm = new RegExp(search.trim().toLowerCase(), 'ig');
@@ -286,7 +284,7 @@ function (_React$Component) {
 
         if (matched) {
           var parsedName = face.name.replace(searchTerm, "<span class=\"".concat(_style_scss__WEBPACK_IMPORTED_MODULE_3___default.a.test, "\">").concat(search.trim(), "</span>"));
-          face.parsedName = parsedName;
+          face.name = parsedName;
           return true;
         }
       });
